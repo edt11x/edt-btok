@@ -6,6 +6,12 @@ clean:
 
 clobber: clean
 
+test: btok ktob
+	/bin/rm -f /tmp/btok_test.c
+	./btok btok.c | ./ktob > /tmp/btok_test.c
+	diff btok.c /tmp/btok_test.c
+	/bin/rm -f /tmp/btok_test.c
+
 btok:
 	gcc \
    -pedantic \
